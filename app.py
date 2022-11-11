@@ -7,10 +7,11 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
-    return 'Hola Mundo'
+    return render_template('index.html')
 
-@app.route('/usuario/<name>')
-def user(name):
+@app.route('/usuario/<name>/<options>')
+def user(name, options):
+    print(name, options)
     return render_template("user.html", name = name)
 
 @app.route('/navegador')
