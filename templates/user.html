@@ -1,7 +1,12 @@
 {% extends 'base.html' %}
 
-{% block titulo %} User page {% endblock %}
+{% block title %} User page {% endblock %}
 
 {% block body %}
-<h1>Hello, {{name}} !</h1>
-{% endblock %}    
+<h1>{% if name%}
+    Hello {{ name}} !
+  {% else %}
+    hello, stranger
+  {% endif %}
+</h1>
+{% endblock %}
