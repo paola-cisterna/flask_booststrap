@@ -9,8 +9,8 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:1211@localhost:54
 db = SQLAlchemy(app)
 migrate = Migrate(app,db)
 
-class message(db.Model):
-    __tablename__ = 'mesages'
+class Message(db.Model):
+    __tablename__ = 'messages'
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(128), nullable=False)
     content = db.Column(db. Text, nullable=False)
@@ -18,14 +18,10 @@ class message(db.Model):
     def __repr__(self):
         return f'<Message {self.title}>'
 
-messages = [{'title': 'Message One',
-             'content': 'Message One Content'},
-            {'title': 'Message Two',
-             'content': 'Message Two Content'}
-            ]
 
 @app.route('/')
 def index():
+    messages = Message.query.all()
     return render_template('index.html', messages = messages)
 
 @app.route('/create', methods =('GET', 'POST'))
@@ -39,7 +35,9 @@ def create():
         elif not content:
             flash('El contenido es obligatorio')
         else:
-            messages.append({'title': title, 'content': content})
+            messages.Message('title': title, 'content': content)
+            db.session.add(message)
+            db.session.commit()
             return redirect(url_for('index'))
 
     return render_template('create.html')
