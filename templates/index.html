@@ -10,7 +10,9 @@
     {% for message in messages %}
         <div class='message'>
             <h3>{{ message['title'] }}</h3>
+            <img src="{{message['picture']}}" alt="{{message['title']}}">
             <p>{{ message['content'] }}</p>
+            <a href="{{url_for('update', id = message.id)}}">actualizar</a>
         </div>
     {% endfor %}
       </div>
