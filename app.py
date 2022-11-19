@@ -12,13 +12,12 @@ migrate = Migrate(app,db)
 class Message(db.Model):
     __tablename__ = 'messages'
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(128), nullable=False)
-    content = db.Column(db. Text, nullable=False)
+    title = db.Column(db.String (128), nullable=False)
+    content = db.Column(db.Text, nullable=False)
     picture = db.Column(db.String(300))
 
     def __repr__(self):
         return f'<Message {self.title}>'
-
 
 @app.route('/')
 def index():
@@ -45,22 +44,31 @@ def create():
     return render_template('create.html')
 
 
-@app.route('/<id>/update', methods = ('GET', 'POST' ))
+@app.route('/<id>/update', methods = ('GET', 'POST'))
 def update(id):
     message = Message.query.filter_by(id = id).first()
     if request.method == 'POST':
         if message:
             message.title = request.form['title']
             message.content = request.form['content']
+            message.picture = request.form['picture']
             db.session.commit()
             return redirect('/')
     return render_template('update.html', message = message)
 
+@app.route('/delete', methods = ['POST'])
+def delete():
+    id = request.form['id']
+    message = Message.query.filter_by(id=id).first()
+    db.session.delete(message)
+    db.session.commit()
+    flash('Mensaje Eliminado')
+    return redirect('/')
+
+
 @app.route('/usuario/<name>')
 def user(name):
     return render_template("user.html", user = name)  
-
-
 
 @app.route('/usuario')
 def user_incognito():
