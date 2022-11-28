@@ -1,11 +1,9 @@
 from flask import Flask, request, render_template, url_for, flash, redirect
-from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate
+
 
 app = Flask(__name__)
 
-db = SQLAlchemy(app)
-migrate = Migrate(app,db)
+
 
 class Message(db.Model):
     __tablename__ = 'messages'
