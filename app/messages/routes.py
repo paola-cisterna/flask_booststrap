@@ -1,6 +1,7 @@
 from app.messages import bp
-from flask import render_template
+from flask import render_template, request,flash,redirect
 from app.models.message import Message
+from app.extensions import bp
 
 @bp.route('/')
 def index():

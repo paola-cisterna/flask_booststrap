@@ -27,4 +27,17 @@ Los comandos anteriores se deben ejecutar dentro de `pipenv shell`
 Para ejecutar el servidor de desarrollo el comando es el siguiente
 ```
 flask --app app-- debug run
-```
+``
+
+
+
+## Blueprint 
+
+Los blueprint permiten componer aplicaciones desde componente pequeños. Cada componente es como una nini aplicacion.permiten crear aplicaciones grandes manteniendo el codigo y la estructura simple.
+
+## Modulos 
+
+para que los blueprint esten bien organizados, es mejor trabajarlos como modulos, es decir,que esten dentro de una carpeta. Los modulos se pueden anidar nosotros hicimos el modulo 'app' con su respectivo__init__.py y dentrotenemos otros modulos como el modulo 'messages' que es ademas un blueprint 
+
+## Tarea 
+Crear un nuevo recurso sencillo, sin base de datos, como blueprint bajo a url / memes debe renderiar html lleno de memes. 
