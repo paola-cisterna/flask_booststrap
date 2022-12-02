@@ -41,3 +41,9 @@ para que los blueprint esten bien organizados, es mejor trabajarlos como modulos
 
 ## Tarea 
 Crear un nuevo recurso sencillo, sin base de datos, como blueprint bajo a url / memes debe renderiar html lleno de memes. 
+
+## MVC (model-view-controller)
+
+https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fcdn.educba.com%2Facademy%2Fwp-content%2Fuploads%2F2019%2F04%2Fwhat-is-mvc-design-pattern.jpg.webp
+
+
