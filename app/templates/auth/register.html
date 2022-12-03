@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %} User page {% endblock %}
+{% block body %}
+<h1 class="text-center">Registrate</h1>
+<form method="post">
+       <label for="username" class="form-label">Nombre de Usuario</label>
+       <input type="text" name="username" id="username"
+              placeholder="Nombre de Usuario"
+              value="{{ request.form['username'] }}" class="form-control">
+       
+       <label for="email" class="form-label">Ingresa tu correo</label>
+       <input type="text" name="email" id="email"
+              placeholder="Ingresa tu Correo"
+              value="{{ request.form['email'] }}" class="form-control">
+      
+       <label for="password" class="form-label">Escribe tu Contraseña</label>
+       <input type="password" name="password" id="password"
+              placeholder="Tu Contraseña"
+              value="{{ request.form['password'] }}" class="form-control">
+
+        <label for="password_confirm" class="form-label">Confirma tu Contraseña</label>
+        <input type="password" name="password_confirm" id="password_confirm"
+                placeholder="Confirma tu Contraseña"
+                value="{{ request.form['password_confirm'] }}" class="form-control">
+
+        <button type="submit" class="btn btn-primary mt-3">Enviar formulario</button>
+</form>
+{% endblock %}

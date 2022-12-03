@@ -1,5 +1,5 @@
 from app.messages import bp
-from flask import render_template, request,flash,redirect
+from flask import render_template, request,flash,redirect, url_for
 from app.models.message import Message
 from app.extensions import db
 
