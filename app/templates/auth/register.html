@@ -19,9 +19,10 @@
               value="{{ request.form['password'] }}" class="form-control">
 
         <label for="password_confirm" class="form-label">Confirma tu Contraseña</label>
-                     value="{{ request.form['password_confirm'] }}" class="form-control">
+        <input type="password" name="password_confirm" id="password_confirm"
+                placeholder="Confirma tu Contraseña"
+                value="{{ request.form['password_confirm'] }}" class="form-control">
 
         <button type="submit" class="btn btn-primary mt-3">Enviar formulario</button>
 </form>
-{% endblock %}   <input type="password" name="password_confirm" id="password_confirm"
-                placeholder="Confirma tu Contraseña"
+{% endblock %}   
