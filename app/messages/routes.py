@@ -1,14 +1,17 @@
-from app.messages import bp
 from flask import render_template, request,flash,redirect, url_for
-from app.models.message import Message
+from flask_login import login_required, current_user
+from app.messages import bp
 from app.extensions import db
+from app.models.message import Message
 
 @bp.route('/')
+@login_required
 def index():
-    messages = Message.query.all()
+    messages = Message.query.filter_by()
     return render_template('messages/index.html', messages = messages)
 
 @bp.route('/create', methods =('GET', 'POST'))
+@login_required
 def create():
     if request.method == 'POST':
         title = request.form['title']
@@ -29,6 +32,7 @@ def create():
 
 
 @bp.route('/<id>/update', methods = ('GET', 'POST'))
+@login_required
 def update(id):
     message = Message.query.filter_by(id = id).first()
     if request.method == 'POST':

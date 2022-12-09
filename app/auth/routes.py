@@ -49,7 +49,7 @@ def login():
             if user and user.verify_password(password):
                 login_user(user, remember)
                 next = request.args.get('next')
-                if next is None or not next.sraerswith('/'):
+                if next is None or not next.startswith('/'):
                     next = url_for('main.index')
                 flash(f'bienvenido {user.username}')
                 return redirect(next)
